@@ -1,7 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('students.urls')),
+    path('', views.add_show, name='addshow'),
+    path('update/<int:id>/', views.update_data, name='updatedata'),
+    path('delete/<int:id>/', views.delete_data, name='delete'),
 ]

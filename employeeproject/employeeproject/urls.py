@@ -15,9 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path,include
+from enroll import views # Importing views from enroll app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('students.urls')),
+    path('auth/', include('auth_app.urls')),
+    path('', include('enroll.urls')),
+    path('', views.add_show, name='addandshow'),  # Root URL mapped to add_show view
+    path('<int:id>/', views.update_data, name='updatedata'),  # URL for updating data
+    path('delete/<int:id>/', views.delete_data, name='delete'),
 ]
