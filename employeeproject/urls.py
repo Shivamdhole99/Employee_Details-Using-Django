@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auth_app.urls')),
     path('', include('employee.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),  # 👈 ADD THIS
+    path('accounts/', include('django.contrib.auth.urls')), # Include default auth URLs
     path('<int:id>/', views.update_data, name='updatedata'),  # URL for updating data
     path('delete/<int:id>/', views.delete_data, name='delete'),
 ]
